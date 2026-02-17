@@ -378,83 +378,74 @@ export default function LandingPage() {
       <Navbar />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#3b5ef5] via-[#4f6df5] to-[#6b8cff]" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyem0wLTRWMjhIMjR2Mmgxem0tMi0ydi0ySDI2djJoOHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-blue-300/15 rounded-full blur-3xl" />
+      <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/80 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto">
             <FadeIn delay={0.1} blur>
-              <PulseBadge className="bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#4f6df5] text-xs font-semibold mb-8">
                 <Sparkles className="w-3.5 h-3.5" />
                 Platform Ujian Online #1 di Indonesia
-              </PulseBadge>
+              </div>
             </FadeIn>
 
             <FadeIn delay={0.2} blur>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
                 Ujian Online
                 <br />
-                <AnimatedGradientText className="from-blue-200 via-cyan-200 to-blue-300">
-                  Mudah & Cepat
-                </AnimatedGradientText>
+                <span className="text-[#4f6df5]">Mudah & Cepat</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.4} blur>
-              <p className="mt-6 text-lg sm:text-xl text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-6 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
                 Platform ujian online (CBT) lengkap untuk sekolah SD, SMP, SMA, dan SMK. Auto-grading, AI generate soal, analitik nilai real-time.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.6}>
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <ShimmerButton
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3.5 text-white text-sm shadow-xl shadow-green-500/20"
-                  background="#25D366"
-                  shimmerColor="rgba(255,255,255,0.2)"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#4f6df5] text-white font-semibold text-sm hover:bg-[#3b5ef5] transition-colors shadow-lg shadow-blue-500/20"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Daftar via WhatsApp
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </ShimmerButton>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
                 <a
-                  href="#fitur"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold text-sm border border-white/20 hover:bg-white/20 transition-colors"
+                  href="#harga"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-white text-gray-700 font-semibold text-sm border border-gray-200 hover:bg-gray-50 transition-colors"
                 >
-                  Lihat Fitur
+                  Lihat Harga
                 </a>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.8}>
-              <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
+              <div className="mt-16 flex items-center justify-center gap-8 sm:gap-12">
                 {[
                   { value: "500+", label: "Sekolah" },
                   { value: "50rb+", label: "Ujian Dibuat" },
                   { value: "99.9%", label: "Uptime" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <p className="text-2xl sm:text-3xl font-bold text-white">
-                      <NumberTicker value={s.value} />
-                    </p>
-                    <p className="text-xs sm:text-sm text-blue-200/70 mt-1">{s.label}</p>
+                ].map((s, i) => (
+                  <div key={s.label} className="flex items-center gap-8 sm:gap-12">
+                    {i > 0 && <div className="w-px h-10 bg-gray-200 -ml-8 sm:-ml-12" />}
+                    <div className="text-center">
+                      <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                        <NumberTicker value={s.value} />
+                      </p>
+                      <p className="text-xs sm:text-sm text-gray-400 mt-1">{s.label}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </FadeIn>
           </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
-          </svg>
         </div>
       </section>
 
