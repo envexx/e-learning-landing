@@ -379,7 +379,7 @@ export default function LandingPage() {
       <Navbar />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-white overflow-hidden">
+      <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/80 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
@@ -448,26 +448,29 @@ export default function LandingPage() {
             </FadeIn>
           </div>
 
-          {/* Dashboard Preview Image — overflows into next section with bottom fade */}
-          <FadeIn delay={1} className="mt-16 lg:mt-20 max-w-5xl mx-auto relative">
-            <div className="relative rounded-t-2xl overflow-hidden shadow-2xl shadow-gray-200/60 border border-gray-200/60 border-b-0 bg-white max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
-              <Image
-                src="/Screenshot 2026-02-16 220053.png"
-                alt="Dashboard Ujian Online nilai.online"
-                width={1920}
-                height={1080}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
-            {/* Bottom fade overlay */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-          </FadeIn>
         </div>
       </section>
 
+      {/* Dashboard Preview — sits between hero and features, overlapping both */}
+      <div className="relative z-0 -mt-10 lg:-mt-16 mb-0 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <FadeIn delay={1}>
+          <div className="relative rounded-t-2xl overflow-hidden shadow-2xl shadow-gray-200/60 border border-gray-200/60 border-b-0 bg-white max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
+            <Image
+              src="/Screenshot 2026-02-16 220053.png"
+              alt="Dashboard Ujian Online nilai.online"
+              width={1920}
+              height={1080}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+          {/* Bottom fade overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+        </FadeIn>
+      </div>
+
       {/* ==================== FEATURES ==================== */}
-      <section id="fitur" className="py-20 lg:py-28">
+      <section id="fitur" className="relative z-10 pt-10 lg:pt-16 pb-20 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Fitur Unggulan</p>
