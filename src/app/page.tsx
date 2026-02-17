@@ -454,7 +454,7 @@ export default function LandingPage() {
       {/* Dashboard Preview — sits between hero and features, overlapping both */}
       <div className="relative z-0 -mt-10 lg:-mt-16 mb-0 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn delay={1}>
-          <div className="relative rounded-t-2xl overflow-hidden shadow-2xl shadow-gray-200/60 border border-gray-200/60 border-b-0 bg-white max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
+          <div className="relative overflow-hidden max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
             <Image
               src="/Screenshot 2026-02-16 220053.png"
               alt="Dashboard Ujian Online nilai.online"
