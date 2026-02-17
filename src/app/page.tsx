@@ -210,7 +210,6 @@ function getWaLinkForTier(tierLabel: string): string {
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -219,94 +218,74 @@ function Navbar() {
   }, []);
 
   const loginUrl = APP_URL ? `${APP_URL}/admin-guru` : "/admin-guru";
-  const expanded = hovered || scrolled;
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 px-4">
+    <nav className="fixed top-0 inset-x-0 z-50 flex justify-center pt-3 px-4">
+      {/* Desktop: full-width dark pill bar */}
       <div
         className={cn(
           "relative flex items-center transition-all duration-500 ease-out rounded-full bg-gray-900/90 backdrop-blur-xl border border-white/[0.08] shadow-2xl shadow-black/20",
-          expanded
-            ? "px-3 py-2 gap-1 md:gap-2 max-w-3xl w-full"
-            : "px-3 py-2 gap-2"
+          "w-full max-w-5xl px-4 md:px-5 py-2 md:py-2.5"
         )}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
       >
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-2 shrink-0 pl-1.5">
+        {/* Logo — always visible */}
+        <a href="/" className="flex items-center gap-2.5 shrink-0">
           <div className="relative w-7 h-7">
             <Image src="/icon/logo-no-bg-png-blue.png" alt="Ujian Online nilai.online" fill className="object-contain brightness-0 invert" priority />
           </div>
-          {expanded && (
-            <span className="text-sm font-bold tracking-tight text-white hidden sm:inline">
-              nilai<span className="text-blue-400">.online</span>
-            </span>
-          )}
+          <span className="text-sm font-bold tracking-tight text-white">
+            nilai<span className="text-blue-400">.online</span>
+          </span>
         </a>
 
-        {/* Compact: hamburger only */}
-        {!expanded && (
-          <button
-            className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            onMouseEnter={() => setHovered(true)}
-          >
-            <Menu className="w-4 h-4 text-white/80" />
-          </button>
-        )}
-
-        {/* Expanded: nav links */}
-        {expanded && (
-          <>
-            <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
-              {NAV_LINKS.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="text-[13px] font-medium text-white/70 hover:text-white px-3 py-1.5 rounded-full hover:bg-white/[0.08] transition-all"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-
-            <div className="hidden md:flex items-center gap-2 shrink-0">
-              <a
-                href={loginUrl}
-                className="text-[13px] font-medium text-white/70 hover:text-white px-3 py-1.5 rounded-full hover:bg-white/[0.08] transition-all"
-              >
-                Masuk
-              </a>
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-1.5 rounded-full bg-white text-gray-900 hover:bg-gray-100 transition-colors"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-                Hubungi
-              </a>
-            </div>
-
-            {/* Mobile hamburger when expanded */}
-            <button
-              className="md:hidden p-1.5 rounded-lg hover:bg-white/10 transition-colors shrink-0 ml-auto"
-              onClick={() => setMobileOpen(!mobileOpen)}
+        {/* Desktop nav links — always visible on md+ */}
+        <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
+          {NAV_LINKS.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-[13px] font-medium text-white/70 hover:text-white px-3.5 py-1.5 rounded-full hover:bg-white/[0.08] transition-all"
             >
-              {mobileOpen ? (
-                <X className="w-4 h-4 text-white" />
-              ) : (
-                <Menu className="w-4 h-4 text-white" />
-              )}
-            </button>
-          </>
-        )}
+              {l.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Desktop right actions */}
+        <div className="hidden md:flex items-center gap-2 shrink-0">
+          <a
+            href={loginUrl}
+            className="text-[13px] font-medium text-white/70 hover:text-white px-3.5 py-1.5 rounded-full hover:bg-white/[0.08] transition-all"
+          >
+            Masuk
+          </a>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-1.5 rounded-full bg-white text-gray-900 hover:bg-gray-100 transition-colors"
+          >
+            <MessageCircle className="w-3.5 h-3.5" />
+            Hubungi Kami
+          </a>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden p-1.5 rounded-lg hover:bg-white/10 transition-colors shrink-0 ml-auto"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? (
+            <X className="w-5 h-5 text-white" />
+          ) : (
+            <Menu className="w-5 h-5 text-white" />
+          )}
+        </button>
       </div>
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="absolute top-full mt-2 left-4 right-4 md:left-auto md:right-auto md:w-80 bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-2xl shadow-black/30 overflow-hidden">
+        <div className="absolute top-full mt-2 left-4 right-4 bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-2xl shadow-black/30 overflow-hidden md:hidden">
           <div className="px-3 py-3 space-y-0.5">
             {NAV_LINKS.map((l) => (
               <a
@@ -394,10 +373,10 @@ export default function LandingPage() {
 
       {/* ==================== HERO ==================== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-[#1a1a3e] to-[#2d2b6b]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3b5ef5] via-[#4f6df5] to-[#6b8cff]" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyem0wLTRWMjhIMjR2Mmgxem0tMi0ydi0ySDI2djJoOHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-blue-300/15 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -419,7 +398,7 @@ export default function LandingPage() {
             </FadeIn>
 
             <FadeIn delay={0.4} blur>
-              <p className="mt-6 text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
                 Platform ujian online (CBT) lengkap untuk sekolah SD, SMP, SMA, dan SMK. Auto-grading, AI generate soal, analitik nilai real-time.
               </p>
             </FadeIn>
@@ -458,7 +437,7 @@ export default function LandingPage() {
                     <p className="text-2xl sm:text-3xl font-bold text-white">
                       <NumberTicker value={s.value} />
                     </p>
-                    <p className="text-xs sm:text-sm text-white/50 mt-1">{s.label}</p>
+                    <p className="text-xs sm:text-sm text-blue-200/70 mt-1">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -849,15 +828,15 @@ export default function LandingPage() {
       <section className="py-20 lg:py-28 bg-gray-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-[#1a1a3e] to-[#2d2b6b]" />
-            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#3b5ef5] via-[#4f6df5] to-[#6b8cff]" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-300/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
             <FadeIn className="relative px-8 py-16 sm:px-16 sm:py-20 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 Siap Mulai Ujian Online di Sekolah Anda?
               </h2>
-              <p className="mt-4 text-white/60 max-w-xl mx-auto">
+              <p className="mt-4 text-blue-100/80 max-w-xl mx-auto">
                 Hubungi kami sekarang via WhatsApp untuk konsultasi gratis, pilih paket, dan langsung mulai ujian online di sekolah Anda.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
