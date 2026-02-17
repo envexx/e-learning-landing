@@ -226,31 +226,32 @@ function Navbar() {
   const loginUrl = APP_URL ? `${APP_URL}/admin-guru` : "/admin-guru";
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 flex justify-center pt-3 px-4">
-      {/* Desktop: full-width dark pill bar */}
-      <div
-        className={cn(
-          "relative flex items-center transition-all duration-500 ease-out rounded-full bg-gray-900/90 backdrop-blur-xl border border-white/[0.08] shadow-2xl shadow-black/20",
-          "w-full max-w-5xl px-4 md:px-5 py-2 md:py-2.5"
-        )}
-      >
-        {/* Logo — always visible */}
+    <nav
+      className={cn(
+        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-gray-100"
+          : "bg-transparent"
+      )}
+    >
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+        {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 shrink-0">
           <div className="relative w-7 h-7">
-            <Image src="/icon/logo-no-bg-png-blue.png" alt="Ujian Online nilai.online" fill className="object-contain brightness-0 invert" priority />
+            <Image src="/icon/logo-no-bg-png-blue.png" alt="Ujian Online nilai.online" fill className="object-contain" priority />
           </div>
-          <span className="text-sm font-bold tracking-tight text-white">
-            nilai<span className="text-blue-400">.online</span>
+          <span className="text-sm font-bold tracking-tight text-gray-900">
+            nilai<span className="text-[#4f6df5]">.online</span>
           </span>
         </a>
 
-        {/* Desktop nav links — always visible on md+ */}
+        {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[13px] font-medium text-white/70 hover:text-white px-3.5 py-1.5 rounded-full hover:bg-white/[0.08] transition-all"
+              className="text-[13px] font-medium text-gray-500 hover:text-gray-900 px-3.5 py-1.5 rounded-full hover:bg-gray-50 transition-all"
             >
               {l.label}
             </a>
@@ -258,10 +259,10 @@ function Navbar() {
         </div>
 
         {/* Desktop right actions */}
-        <div className="hidden md:flex items-center gap-2 shrink-0">
+        <div className="hidden md:flex items-center gap-2.5 shrink-0">
           <a
             href={loginUrl}
-            className="text-[13px] font-medium text-white/70 hover:text-white px-3.5 py-1.5 rounded-full hover:bg-white/[0.08] transition-all"
+            className="text-[13px] font-medium text-gray-500 hover:text-gray-900 px-3.5 py-1.5 rounded-full hover:bg-gray-50 transition-all"
           >
             Masuk
           </a>
@@ -269,7 +270,7 @@ function Navbar() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-1.5 rounded-full bg-white text-gray-900 hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-2 rounded-full bg-[#4f6df5] text-white hover:bg-[#3b5ef5] transition-colors shadow-sm"
           >
             <MessageCircle className="w-3.5 h-3.5" />
             Hubungi Kami
@@ -278,36 +279,36 @@ function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-1.5 rounded-lg hover:bg-white/10 transition-colors shrink-0 ml-auto"
+          className="md:hidden p-1.5 rounded-lg hover:bg-gray-100 transition-colors shrink-0"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? (
-            <X className="w-5 h-5 text-white" />
+            <X className="w-5 h-5 text-gray-700" />
           ) : (
-            <Menu className="w-5 h-5 text-white" />
+            <Menu className="w-5 h-5 text-gray-700" />
           )}
         </button>
       </div>
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="absolute top-full mt-2 left-4 right-4 bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-2xl shadow-black/30 overflow-hidden md:hidden">
-          <div className="px-3 py-3 space-y-0.5">
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <div className="px-4 py-3 space-y-0.5">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/[0.06] rounded-xl transition-colors"
+                className="block px-3 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-xl transition-colors"
               >
                 {l.label}
               </a>
             ))}
-            <div className="pt-2 mt-2 border-t border-white/[0.06] space-y-1.5">
-              <a href={loginUrl} className="block w-full text-center px-4 py-2.5 text-sm font-medium text-white/80 border border-white/[0.1] rounded-xl hover:bg-white/[0.06] transition-colors">
+            <div className="pt-2 mt-2 border-t border-gray-100 space-y-1.5">
+              <a href={loginUrl} className="block w-full text-center px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
                 Masuk
               </a>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-gray-900 bg-white rounded-xl hover:bg-gray-100 transition-colors">
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-[#4f6df5] rounded-xl hover:bg-[#3b5ef5] transition-colors">
                 <MessageCircle className="w-4 h-4" />
                 Hubungi Kami
               </a>
@@ -446,6 +447,20 @@ export default function LandingPage() {
               </div>
             </FadeIn>
           </div>
+
+          {/* Dashboard Preview Image */}
+          <FadeIn delay={1} className="mt-16 lg:mt-20 max-w-5xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/60 border border-gray-200/60 bg-white">
+              <Image
+                src="/Screenshot 2026-02-16 220053.png"
+                alt="Dashboard Ujian Online nilai.online"
+                width={1920}
+                height={1080}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
