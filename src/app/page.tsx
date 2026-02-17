@@ -348,9 +348,7 @@ export default function LandingPage() {
   const [media, setMedia] = useState<LandingMediaItem[]>([]);
 
   useEffect(() => {
-    const apiBase = API_URL;
-
-    fetch(`${apiBase}/api/public/tiers`)
+    fetch("/api/public/tiers")
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.data) {
@@ -360,7 +358,7 @@ export default function LandingPage() {
       .catch((err) => console.error("Error fetching tiers:", err))
       .finally(() => setLoadingTiers(false));
 
-    fetch(`${apiBase}/api/public/landing-media`)
+    fetch("/api/public/landing-media")
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.data) {
