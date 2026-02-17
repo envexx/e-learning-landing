@@ -448,9 +448,9 @@ export default function LandingPage() {
             </FadeIn>
           </div>
 
-          {/* Dashboard Preview Image */}
-          <FadeIn delay={1} className="mt-16 lg:mt-20 max-w-5xl mx-auto">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/60 border border-gray-200/60 bg-white">
+          {/* Dashboard Preview Image — overflows into next section with bottom fade */}
+          <FadeIn delay={1} className="mt-16 lg:mt-20 max-w-5xl mx-auto relative">
+            <div className="relative rounded-t-2xl overflow-hidden shadow-2xl shadow-gray-200/60 border border-gray-200/60 border-b-0 bg-white max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
               <Image
                 src="/Screenshot 2026-02-16 220053.png"
                 alt="Dashboard Ujian Online nilai.online"
@@ -460,6 +460,8 @@ export default function LandingPage() {
                 priority
               />
             </div>
+            {/* Bottom fade overlay */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
           </FadeIn>
         </div>
       </section>
