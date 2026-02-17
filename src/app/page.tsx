@@ -37,38 +37,44 @@ const FEATURES = [
     icon: ClipboardList,
     title: "Ujian Online (CBT)",
     desc: "Buat ujian online dengan berbagai tipe soal: pilihan ganda, essay, isian singkat, benar/salah, dan pencocokan. Dilengkapi auto-grading otomatis dan timer ujian.",
-    color: "from-blue-500 to-indigo-600",
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
   },
   {
     icon: UserCheck,
     title: "Kehadiran Online",
     desc: "Butuh presensi digital? Gunakan platform kehadiran.online — sistem absensi online terintegrasi untuk siswa dan guru.",
-    color: "from-emerald-500 to-teal-600",
+    iconBg: "bg-emerald-50",
+    iconColor: "text-emerald-500",
     link: "https://kehadiran.online/",
   },
   {
     icon: Brain,
     title: "AI Generate Soal",
     desc: "Asisten AI yang bisa membuat soal ujian otomatis. Cukup deskripsikan materi, soal langsung jadi lengkap dengan kunci jawaban.",
-    color: "from-purple-500 to-pink-600",
+    iconBg: "bg-purple-50",
+    iconColor: "text-purple-500",
   },
   {
     icon: BarChart3,
     title: "Analitik Nilai Real-time",
     desc: "Dashboard analitik untuk memantau hasil ujian, statistik nilai per siswa, per kelas, dan per mata pelajaran secara real-time.",
-    color: "from-orange-500 to-red-500",
+    iconBg: "bg-orange-50",
+    iconColor: "text-orange-500",
   },
   {
     icon: FileText,
     title: "Bank Soal & Export PDF",
     desc: "Simpan dan kelola bank soal untuk digunakan kembali. Export hasil ujian dan rapor ke format PDF dengan mudah.",
-    color: "from-cyan-500 to-blue-600",
+    iconBg: "bg-cyan-50",
+    iconColor: "text-cyan-500",
   },
   {
     icon: Shield,
     title: "Multi-Tenant & Aman",
     desc: "Setiap sekolah memiliki data terpisah dan terisolasi. Keamanan data terjamin. Cocok untuk SD, SMP, SMA, dan SMK.",
-    color: "from-rose-500 to-pink-600",
+    iconBg: "bg-rose-50",
+    iconColor: "text-rose-500",
   },
 ];
 
@@ -316,7 +322,7 @@ function Navbar() {
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-gray-300">
+    <div className="bg-white border border-gray-100/80 rounded-2xl shadow-sm overflow-hidden transition-all hover:shadow-md hover:shadow-gray-200/50">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left"
@@ -474,15 +480,15 @@ export default function LandingPage() {
                 <StaggerItem key={f.title}>
                   <Tag
                     {...linkProps}
-                    className="group relative p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 transition-all duration-300 h-full block"
+                    className="group relative p-7 rounded-2xl bg-white border border-gray-100/80 shadow-sm hover:shadow-md hover:shadow-gray-200/50 transition-all duration-300 h-full block"
                   >
-                    <div className={cn("w-11 h-11 rounded-xl bg-gradient-to-br flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300", f.color)}>
-                      <f.icon className="w-5 h-5 text-white" />
+                    <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center mb-5", f.iconBg)}>
+                      <f.icon className={cn("w-5 h-5", f.iconColor)} />
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900 mb-2">{f.title}</h3>
+                    <h3 className="text-[15px] font-semibold text-gray-900 mb-2">{f.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
                     {isLink && (
-                      <p className="text-xs text-[#4f6df5] font-medium mt-3 group-hover:underline">Kunjungi kehadiran.online →</p>
+                      <p className="text-xs text-[#4f6df5] font-medium mt-4 group-hover:underline">Kunjungi kehadiran.online →</p>
                     )}
                   </Tag>
                 </StaggerItem>
@@ -509,7 +515,7 @@ export default function LandingPage() {
 
       {/* ==================== PREVIEW GALLERY ==================== */}
       {previewImages.length > 0 && (
-        <section className="py-20 lg:py-28 bg-gray-50/70">
+        <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Preview Platform</p>
@@ -556,7 +562,7 @@ export default function LandingPage() {
       )}
 
       {/* ==================== HOW IT WORKS ==================== */}
-      <section className="py-20 lg:py-28 bg-gray-50/70">
+      <section className="py-20 lg:py-28 bg-[#f8fafc]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Cara Memulai</p>
@@ -565,18 +571,20 @@ export default function LandingPage() {
             </h2>
           </FadeIn>
 
-          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.15}>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
             {[
               { step: "01", title: "Hubungi Kami", desc: "Chat via WhatsApp untuk konsultasi, pilih paket, dan proses pembayaran. Akun sekolah langsung dibuatkan." },
               { step: "02", title: "Setup Sekolah", desc: "Import data guru, siswa, dan kelas. Bisa manual atau bulk import via Excel. Selesai dalam hitungan menit." },
               { step: "03", title: "Mulai Ujian Online", desc: "Buat ujian online dan pantau hasil nilai siswa secara real-time dari dashboard." },
             ].map((item) => (
-              <StaggerItem key={item.step} className="text-center">
-                <div className="w-14 h-14 rounded-2xl bg-[#4f6df5] text-white text-xl font-bold flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-500/15 animate-float" style={{ animationDelay: `${parseInt(item.step) * 0.3}s` }}>
-                  {item.step}
+              <StaggerItem key={item.step}>
+                <div className="bg-white rounded-2xl border border-gray-100/80 shadow-sm p-7 text-center h-full">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#4f6df5] text-lg font-bold flex items-center justify-center mx-auto mb-5">
+                    {item.step}
+                  </div>
+                  <h3 className="text-[15px] font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </StaggerItem>
             ))}
           </StaggerChildren>
@@ -634,7 +642,7 @@ export default function LandingPage() {
       )}
 
       {/* ==================== PRICING (from API) ==================== */}
-      <section id="harga" className="py-20 lg:py-28">
+      <section id="harga" className="py-20 lg:py-28 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Harga Paket Tahunan</p>
@@ -674,15 +682,15 @@ export default function LandingPage() {
                     <div
                       key={tier.id}
                       className={cn(
-                        "relative flex flex-col rounded-2xl border bg-white p-6 transition-all duration-300 hover:shadow-xl",
+                        "relative flex flex-col rounded-2xl bg-white p-7 transition-all duration-300",
                         isPopular
-                          ? "border-[#4f6df5] shadow-lg shadow-blue-500/10 ring-1 ring-[#4f6df5]"
-                          : "border-gray-200 hover:border-gray-300"
+                          ? "border-2 border-[#4f6df5] shadow-md shadow-blue-100/50"
+                          : "border border-gray-100/80 shadow-sm hover:shadow-md hover:shadow-gray-200/50"
                       )}
                     >
                       {isPopular && (
                         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#4f6df5] text-white text-[11px] font-semibold shadow-lg">
+                          <span className="inline-flex items-center gap-1 px-3.5 py-1 rounded-full bg-[#4f6df5] text-white text-[11px] font-semibold">
                             <Star className="w-3 h-3" /> Populer
                           </span>
                         </div>
@@ -773,7 +781,7 @@ export default function LandingPage() {
       </section>
 
       {/* ==================== TESTIMONIALS ==================== */}
-      <section id="testimonial" className="py-20 lg:py-28 bg-gray-50/70">
+      <section id="testimonial" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Testimonial</p>
@@ -785,11 +793,11 @@ export default function LandingPage() {
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
-                <div className="relative p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-lg transition-shadow duration-300 h-full">
-                  <Quote className="w-8 h-8 text-[#4f6df5]/10 mb-4" />
+                <div className="relative p-7 rounded-2xl bg-white border border-gray-100/80 shadow-sm hover:shadow-md hover:shadow-gray-200/50 transition-all duration-300 h-full">
+                  <Quote className="w-7 h-7 text-[#4f6df5]/15 mb-4" />
                   <p className="text-sm text-gray-600 leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f6df5] to-indigo-400 flex items-center justify-center text-white text-xs font-bold">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#4f6df5] text-xs font-bold">
                       {t.avatar}
                     </div>
                     <div>
@@ -805,7 +813,7 @@ export default function LandingPage() {
       </section>
 
       {/* ==================== FAQ ==================== */}
-      <section id="faq" className="py-20 lg:py-28">
+      <section id="faq" className="py-20 lg:py-28 bg-[#f8fafc]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
             <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">FAQ</p>
@@ -825,7 +833,7 @@ export default function LandingPage() {
       </section>
 
       {/* ==================== CTA ==================== */}
-      <section className="py-20 lg:py-28 bg-gray-50/70">
+      <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#3b5ef5] via-[#4f6df5] to-[#6b8cff]" />
