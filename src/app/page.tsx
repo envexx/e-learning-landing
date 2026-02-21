@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   ClipboardList, BarChart3, Shield, Sparkles, ArrowRight, Check,
   ChevronRight, Menu, X, Brain, Star, Quote, Globe,
-  UserCheck, FileText, MessageCircle, Loader2,
+  UserCheck, FileText, MessageCircle, Loader2, UserPlus,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/magicui/fade-in";
@@ -37,8 +37,8 @@ const FEATURES = [
     icon: ClipboardList,
     title: "Ujian Online (CBT)",
     desc: "Buat ujian online dengan berbagai tipe soal: pilihan ganda, essay, isian singkat, benar/salah, dan pencocokan. Dilengkapi auto-grading otomatis dan timer ujian.",
-    iconBg: "bg-blue-50",
-    iconColor: "text-blue-500",
+    iconBg: "bg-orange-50",
+    iconColor: "text-orange-500",
   },
   {
     icon: UserCheck,
@@ -102,7 +102,7 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     q: "Apakah platform ujian online ini bisa dicoba gratis?",
-    a: "Ya! Kami menyediakan paket Trial gratis selama 14 hari dengan akses ke semua fitur dasar ujian online. Tidak perlu kartu kredit.",
+    a: "Ya! Kami menyediakan akses gratis selama 10 hari dengan fitur dasar ujian online. Cukup daftar akun sekolah dan langsung bisa digunakan. Tidak perlu kartu kredit.",
   },
   {
     q: "Tipe soal apa saja yang didukung untuk ujian online?",
@@ -110,7 +110,7 @@ const FAQS = [
   },
   {
     q: "Bagaimana cara mendaftar dan membuat akun sekolah?",
-    a: "Hubungi tim kami via WhatsApp untuk proses pendaftaran dan pembayaran. Setelah pembayaran dikonfirmasi, akun sekolah Anda akan langsung aktif dan siap digunakan.",
+    a: "Klik tombol 'Daftar Gratis' di halaman ini, isi data sekolah dan akun admin, lalu akun Anda langsung aktif dengan paket Free. Untuk paket Enterprise, hubungi kami via WhatsApp.",
   },
   {
     q: "Apakah bisa digunakan untuk PTS, PAS, dan ujian semester?",
@@ -122,7 +122,7 @@ const FAQS = [
   },
   {
     q: "Apakah bisa upgrade atau downgrade paket?",
-    a: "Tentu! Anda bisa mengubah paket kapan saja. Hubungi tim kami via WhatsApp untuk proses perubahan paket.",
+    a: "Tentu! Anda bisa mulai dengan paket Free dan upgrade kapan saja sesuai kebutuhan. Hubungi tim kami via WhatsApp untuk proses upgrade paket.",
   },
 ];
 
@@ -223,7 +223,7 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const loginUrl = APP_URL ? `${APP_URL}/admin-guru` : "/admin-guru";
+  const loginUrl = "https://app.nilai.online/";
 
   return (
     <nav
@@ -241,7 +241,7 @@ function Navbar() {
             <Image src="/icon/logo-no-bg-png-blue.png" alt="Ujian Online nilai.online" fill className="object-contain" priority />
           </div>
           <span className="text-sm font-bold tracking-tight text-gray-900">
-            nilai<span className="text-[#4f6df5]">.online</span>
+            nilai<span className="text-[#F97316]">.online</span>
           </span>
         </a>
 
@@ -267,13 +267,11 @@ function Navbar() {
             Masuk
           </a>
           <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-2 rounded-full bg-[#4f6df5] text-white hover:bg-[#3b5ef5] transition-colors shadow-sm"
+            href="/register"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-2 rounded-full bg-[#F97316] text-white hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-200/50 transition-all shadow-sm"
           >
-            <MessageCircle className="w-3.5 h-3.5" />
-            Hubungi Kami
+            <UserPlus className="w-3.5 h-3.5" />
+            Daftar Gratis
           </a>
         </div>
 
@@ -308,9 +306,9 @@ function Navbar() {
               <a href={loginUrl} className="block w-full text-center px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
                 Masuk
               </a>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-[#4f6df5] rounded-xl hover:bg-[#3b5ef5] transition-colors">
-                <MessageCircle className="w-4 h-4" />
-                Hubungi Kami
+              <a href="/register" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-[#F97316] rounded-xl hover:bg-[#ea6c0e] hover:shadow-lg transition-all">
+                <UserPlus className="w-4 h-4" />
+                Daftar Gratis
               </a>
             </div>
           </div>
@@ -378,13 +376,13 @@ export default function LandingPage() {
 
       {/* ==================== HERO ==================== */}
       <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-white">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/80 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-50/80 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <FadeIn delay={0.1} blur>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#4f6df5] text-xs font-semibold mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-50 to-orange-100/50 border border-orange-100/60 text-[#F97316] text-xs font-semibold mb-8">
                 <Sparkles className="w-3.5 h-3.5" />
                 Platform Ujian Online #1 di Indonesia
               </div>
@@ -394,7 +392,7 @@ export default function LandingPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
                 Ujian Online
                 <br />
-                <span className="text-[#4f6df5]">Mudah & Cepat</span>
+                <span className="text-[#F97316]">Mudah & Cepat</span>
               </h1>
             </FadeIn>
 
@@ -407,13 +405,11 @@ export default function LandingPage() {
             <FadeIn delay={0.6}>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#4f6df5] text-white font-semibold text-sm hover:bg-[#3b5ef5] transition-colors shadow-lg shadow-blue-500/20"
+                  href="/register"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-300/30 transition-all shadow-lg shadow-orange-500/20"
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  Daftar via WhatsApp
+                  <UserPlus className="w-4 h-4" />
+                  Daftar Gratis
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
@@ -471,7 +467,7 @@ export default function LandingPage() {
       <section id="fitur" className="relative z-10 pt-10 lg:pt-16 pb-20 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Fitur Unggulan</p>
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Fitur Unggulan</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               Platform Ujian Online Lengkap untuk Sekolah
             </h2>
@@ -497,7 +493,7 @@ export default function LandingPage() {
                     <h3 className="text-[15px] font-semibold text-gray-900 mb-2">{f.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
                     {isLink && (
-                      <p className="text-xs text-[#4f6df5] font-medium mt-4 group-hover:underline">Kunjungi kehadiran.online →</p>
+                      <p className="text-xs text-[#F97316] font-medium mt-4 group-hover:underline">Kunjungi kehadiran.online →</p>
                     )}
                   </Tag>
                 </StaggerItem>
@@ -506,17 +502,15 @@ export default function LandingPage() {
           </StaggerChildren>
 
           <FadeIn className="text-center mt-12" delay={0.4}>
-            <p className="text-sm text-gray-500 mb-4">Tertarik dengan fitur kami? Hubungi tim kami untuk demo dan pembuatan akun.</p>
+            <p className="text-sm text-gray-500 mb-4">Tertarik dengan fitur kami? Daftar gratis dan mulai ujian online sekarang.</p>
             <ShimmerButton
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 text-white text-sm shadow-lg shadow-green-500/20"
-              background="#25D366"
+              href="/register"
+              className="px-6 py-3 text-white text-sm shadow-lg shadow-orange-500/20"
+              background="#F97316"
               shimmerColor="rgba(255,255,255,0.2)"
             >
-              <MessageCircle className="w-4 h-4" />
-              Tanya via WhatsApp
+              <UserPlus className="w-4 h-4" />
+              Daftar Gratis Sekarang
             </ShimmerButton>
           </FadeIn>
         </div>
@@ -527,7 +521,7 @@ export default function LandingPage() {
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Preview Platform</p>
+              <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Preview Platform</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
                 Lihat Tampilan Ujian Online Kami
               </h2>
@@ -574,7 +568,7 @@ export default function LandingPage() {
       <section className="py-20 lg:py-28 bg-[#f8fafc]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Cara Memulai</p>
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Cara Memulai</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               3 Langkah Mudah untuk Ujian Online
             </h2>
@@ -582,13 +576,13 @@ export default function LandingPage() {
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
             {[
-              { step: "01", title: "Hubungi Kami", desc: "Chat via WhatsApp untuk konsultasi, pilih paket, dan proses pembayaran. Akun sekolah langsung dibuatkan." },
+              { step: "01", title: "Daftar Gratis", desc: "Buat akun sekolah dalam hitungan menit. Cukup isi nama sekolah, email, dan password. Langsung aktif dengan paket Free." },
               { step: "02", title: "Setup Sekolah", desc: "Import data guru, siswa, dan kelas. Bisa manual atau bulk import via Excel. Selesai dalam hitungan menit." },
               { step: "03", title: "Mulai Ujian Online", desc: "Buat ujian online dan pantau hasil nilai siswa secara real-time dari dashboard." },
             ].map((item) => (
               <StaggerItem key={item.step}>
                 <div className="bg-white rounded-2xl border border-gray-100/80 shadow-sm p-7 text-center h-full">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#4f6df5] text-lg font-bold flex items-center justify-center mx-auto mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 text-[#F97316] text-lg font-bold flex items-center justify-center mx-auto mb-5">
                     {item.step}
                   </div>
                   <h3 className="text-[15px] font-semibold text-gray-900 mb-2">{item.title}</h3>
@@ -605,7 +599,7 @@ export default function LandingPage() {
         <section className="py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Video Tutorial</p>
+              <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Video Tutorial</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
                 Lihat Demo & Tutorial Ujian Online
               </h2>
@@ -654,18 +648,18 @@ export default function LandingPage() {
       <section id="harga" className="py-20 lg:py-28 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Harga Paket Tahunan</p>
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Harga Paket Tahunan</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               Paket Ujian Online untuk Setiap Sekolah
             </h2>
             <p className="mt-4 text-gray-500 leading-relaxed">
-              Pilih paket sesuai kebutuhan sekolah Anda. Semua harga berlaku per tahun. Hubungi kami via WhatsApp untuk pembayaran dan pembuatan akun.
+              Mulai gratis dengan paket Free, atau pilih paket sesuai kebutuhan sekolah Anda. Untuk paket Enterprise, hubungi kami via WhatsApp.
             </p>
           </FadeIn>
 
           {loadingTiers ? (
             <div className="flex items-center justify-center py-20">
-              <Loader2 className="w-8 h-8 animate-spin text-[#4f6df5]" />
+              <Loader2 className="w-8 h-8 animate-spin text-[#F97316]" />
               <span className="ml-3 text-gray-500">Memuat data paket...</span>
             </div>
           ) : tiers.length === 0 ? (
@@ -693,13 +687,13 @@ export default function LandingPage() {
                       className={cn(
                         "relative flex flex-col rounded-2xl bg-white p-7 transition-all duration-300",
                         isPopular
-                          ? "border-2 border-[#4f6df5] shadow-md shadow-blue-100/50"
+                          ? "border-2 border-[#F97316] shadow-md shadow-orange-100/50"
                           : "border border-gray-100/80 shadow-sm hover:shadow-md hover:shadow-gray-200/50"
                       )}
                     >
                       {isPopular && (
                         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                          <span className="inline-flex items-center gap-1 px-3.5 py-1 rounded-full bg-[#4f6df5] text-white text-[11px] font-semibold">
+                          <span className="inline-flex items-center gap-1 px-3.5 py-1 rounded-full bg-[#F97316] text-white text-[11px] font-semibold">
                             <Star className="w-3 h-3" /> Populer
                           </span>
                         </div>
@@ -708,15 +702,15 @@ export default function LandingPage() {
                       <div className="mb-5">
                         <h3 className="text-lg font-semibold text-gray-900">{tier.label}</h3>
                         <p className="text-xs text-gray-400 mt-1">
-                          {tier.nama === "trial" ? "Coba gratis selama 14 hari" : `Paket ${tier.label} untuk sekolah`}
+                          {tier.nama === "free" ? "Akses gratis 10 hari" : tier.nama === "enterprise" ? "Hubungi kami untuk penawaran" : `Paket ${tier.label} untuk sekolah`}
                         </p>
                       </div>
 
                       <div className="mb-6">
                         {tier.harga === 0 ? (
                           <>
-                            <span className="text-3xl font-extrabold text-gray-900">Gratis</span>
-                            <span className="text-sm text-gray-400 ml-1">14 hari</span>
+                            <span className="text-3xl font-extrabold text-[#F97316]">Gratis</span>
+                            <span className="text-sm text-gray-400 ml-1">10 hari</span>
                           </>
                         ) : (
                           <>
@@ -729,23 +723,23 @@ export default function LandingPage() {
 
                       <div className="space-y-2 mb-6 pb-6 border-b border-gray-100">
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#4f6df5]/60" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]/60" />
                           {formatLimit(tier.maxSiswa)} Siswa
                         </div>
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#4f6df5]/60" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]/60" />
                           {formatLimit(tier.maxGuru)} Guru
                         </div>
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#4f6df5]/60" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]/60" />
                           {formatLimit(tier.maxKelas)} Kelas
                         </div>
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#4f6df5]/60" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]/60" />
                           {formatLimit(tier.maxUjian)} Ujian
                         </div>
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#4f6df5]/60" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]/60" />
                           {formatStorage(tier.maxStorage)} Storage
                         </div>
                       </div>
@@ -759,29 +753,41 @@ export default function LandingPage() {
                         ))}
                       </div>
 
-                      <a
-                        href={getWaLinkForTier(tier.label)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                          "flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-colors",
-                          isPopular
-                            ? "bg-[#25D366] text-white hover:bg-[#1fb855] shadow-lg shadow-green-500/20"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        )}
-                      >
-                        <MessageCircle className="w-4 h-4" />
-                        {tier.harga === 0 ? "Coba Gratis" : `Pilih ${tier.label}`}
-                      </a>
+                      {tier.nama === "enterprise" ? (
+                        <a
+                          href={getWaLinkForTier(tier.label)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold bg-[#25D366] text-white hover:bg-[#1fb855] shadow-lg shadow-green-500/20 transition-colors"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          Hubungi Kami
+                        </a>
+                      ) : (
+                        <a
+                          href="/register"
+                          className={cn(
+                            "flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-all",
+                            isPopular
+                              ? "bg-[#F97316] text-white hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-200/50"
+                              : tier.harga === 0
+                                ? "bg-[#F97316] text-white hover:bg-[#ea6c0e] shadow-lg shadow-orange-200/50"
+                                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          )}
+                        >
+                          <UserPlus className="w-4 h-4" />
+                          {tier.harga === 0 ? "Daftar Gratis" : `Pilih ${tier.label}`}
+                        </a>
+                      )}
                     </div>
                   );
                 })}
               </div>
 
               <p className="text-center text-xs text-gray-400 mt-8">
-                Semua harga sudah termasuk setup akun dan support. Hubungi kami untuk paket custom.{" "}
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-[#4f6df5] hover:underline font-medium">
-                  Chat WhatsApp
+                Paket Free langsung aktif setelah registrasi. Untuk upgrade atau paket custom,{" "}
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-[#F97316] hover:underline font-medium">
+                  hubungi kami via WhatsApp
                 </a>
               </p>
             </>
@@ -793,7 +799,7 @@ export default function LandingPage() {
       <section id="testimonial" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">Testimonial</p>
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Testimonial</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               Dipercaya Sekolah untuk Ujian Online
             </h2>
@@ -803,10 +809,10 @@ export default function LandingPage() {
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="relative p-7 rounded-2xl bg-white border border-gray-100/80 shadow-sm hover:shadow-md hover:shadow-gray-200/50 transition-all duration-300 h-full">
-                  <Quote className="w-7 h-7 text-[#4f6df5]/15 mb-4" />
+                  <Quote className="w-7 h-7 text-[#F97316]/15 mb-4" />
                   <p className="text-sm text-gray-600 leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#4f6df5] text-xs font-bold">
+                    <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-[#F97316] text-xs font-bold">
                       {t.avatar}
                     </div>
                     <div>
@@ -825,7 +831,7 @@ export default function LandingPage() {
       <section id="faq" className="py-20 lg:py-28 bg-[#f8fafc]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#4f6df5] tracking-wide uppercase mb-3">FAQ</p>
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">FAQ</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               Pertanyaan Umum Ujian Online
             </h2>
@@ -845,28 +851,26 @@ export default function LandingPage() {
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#3b5ef5] via-[#4f6df5] to-[#6b8cff]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#F97316] via-[#ea6c0e] to-[#c2410c]" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-300/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-300/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
             <FadeIn className="relative px-8 py-16 sm:px-16 sm:py-20 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 Siap Mulai Ujian Online di Sekolah Anda?
               </h2>
-              <p className="mt-4 text-blue-100/80 max-w-xl mx-auto">
-                Hubungi kami sekarang via WhatsApp untuk konsultasi gratis, pilih paket, dan langsung mulai ujian online di sekolah Anda.
+              <p className="mt-4 text-orange-100/80 max-w-xl mx-auto">
+                Daftar gratis sekarang dan langsung mulai ujian online di sekolah Anda. Akses gratis 10 hari, tanpa kartu kredit.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <ShimmerButton
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/register"
                   className="px-8 py-3.5 text-white text-sm shadow-xl"
-                  background="#25D366"
+                  background="#F97316"
                   shimmerColor="rgba(255,255,255,0.2)"
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  Chat WhatsApp Sekarang
+                  <UserPlus className="w-4 h-4" />
+                  Daftar Gratis Sekarang
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </ShimmerButton>
                 <a
@@ -891,7 +895,7 @@ export default function LandingPage() {
                   <Image src="/icon/logo-no-bg-png-blue.png" alt="Ujian Online nilai.online" fill className="object-contain" />
                 </div>
                 <span className="text-lg font-bold tracking-tight text-gray-900">
-                  nilai<span className="text-[#3b82f6]">.online</span>
+                  nilai<span className="text-[#F97316]">.online</span>
                 </span>
               </a>
               <p className="text-sm text-gray-400 leading-relaxed">
@@ -903,6 +907,7 @@ export default function LandingPage() {
               <h4 className="text-sm font-semibold text-gray-900 mb-3">Produk</h4>
               <ul className="space-y-2">
                 {[
+                  { label: "Daftar Gratis", href: "/register" },
                   { label: "Ujian Online", href: "#fitur" },
                   { label: "Kehadiran Online", href: "https://kehadiran.online/" },
                   { label: "Harga", href: "#harga" },
@@ -928,9 +933,12 @@ export default function LandingPage() {
             <div>
               <h4 className="text-sm font-semibold text-gray-900 mb-3">Legal</h4>
               <ul className="space-y-2">
-                {["Kebijakan Privasi", "Syarat & Ketentuan"].map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">{l}</a>
+                {[
+                  { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
+                  { label: "Syarat & Ketentuan", href: "/syarat-ketentuan" },
+                ].map((l) => (
+                  <li key={l.label}>
+                    <a href={l.href} className="text-sm text-gray-400 hover:text-gray-600 transition-colors">{l.label}</a>
                   </li>
                 ))}
               </ul>
