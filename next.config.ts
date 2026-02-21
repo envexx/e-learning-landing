@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.nilai.online";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://lms-backend.ompekp.workers.dev";
 
 const nextConfig: NextConfig = {
   images: {
