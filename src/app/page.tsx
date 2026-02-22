@@ -516,6 +516,71 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ==================== STATIC SCREENSHOTS ==================== */}
+      <section className="py-20 lg:py-28 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Preview Platform</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+              Lihat Tampilan Ujian Online Kami
+            </h2>
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              Berikut tampilan platform ujian online yang akan Anda gunakan.
+            </p>
+          </FadeIn>
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.15}>
+            {[
+              { src: "/ss-dashboard.png", alt: "Dashboard Guru", caption: "Dashboard Guru — Ringkasan statistik ujian dan aksi cepat" },
+              { src: "/ss-manajemen-ujian.png", alt: "Manajemen Ujian", caption: "Manajemen Ujian — Kelola semua ujian dari satu halaman" },
+              { src: "/ss-nilai-siswa.png", alt: "Nilai Siswa", caption: "Nilai Siswa — Pantau hasil ujian per siswa secara real-time" },
+              { src: "/ss-detail-ujian.png", alt: "Detail Ujian", caption: "Detail Ujian — Preview soal lengkap dengan kunci jawaban" },
+            ].map((img) => (
+              <StaggerItem key={img.src}>
+                <div className="group">
+                  <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-500 text-center mt-3 font-medium">{img.caption}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* ==================== VIDEO DEMO ==================== */}
+      <section className="py-20 lg:py-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Video Demo</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+              Lihat Demo Platform Ujian Online
+            </h2>
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              Tonton video demo cara menggunakan platform ujian online kami.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-black">
+              <iframe
+                src="https://www.youtube.com/embed/Vzw4F2G1puw"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Demo Platform Ujian Online nilai.online"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ==================== PREVIEW GALLERY ==================== */}
       {previewImages.length > 0 && (
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
