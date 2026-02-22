@@ -1026,6 +1026,18 @@ export default function LandingPage() {
         </div>
       </footer>
 
+      {/* ==================== FLOATING WHATSAPP BUTTON ==================== */}
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 hover:scale-105 transition-all duration-300 group"
+        aria-label="Hubungi kami via WhatsApp"
+      >
+        <MessageCircle className="w-5 h-5" />
+        <span className="text-sm font-semibold hidden sm:inline">Hubungi Kami</span>
+      </a>
+
       {/* ==================== JSON-LD Structured Data ==================== */}
       <script
         type="application/ld+json"
