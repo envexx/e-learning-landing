@@ -450,7 +450,7 @@ export default function LandingPage() {
         <FadeIn delay={1}>
           <div className="relative overflow-hidden max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
             <Image
-              src="/Screenshot 2026-02-16 220053.png"
+              src="/ss-detail-ujian.png"
               alt="Dashboard Ujian Online nilai.online"
               width={1920}
               height={1080}
