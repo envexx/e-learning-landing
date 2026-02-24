@@ -267,7 +267,7 @@ function Navbar() {
             Masuk
           </a>
           <a
-            href="/register"
+            href="https://app.nilai.online/register"
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold px-4 py-2 rounded-full bg-[#F97316] text-white hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-200/50 transition-all shadow-sm"
           >
             <UserPlus className="w-3.5 h-3.5" />
@@ -306,7 +306,7 @@ function Navbar() {
               <a href={loginUrl} className="block w-full text-center px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
                 Masuk
               </a>
-              <a href="/register" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-[#F97316] rounded-xl hover:bg-[#ea6c0e] hover:shadow-lg transition-all">
+              <a href="https://app.nilai.online/register" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-[#F97316] rounded-xl hover:bg-[#ea6c0e] hover:shadow-lg transition-all">
                 <UserPlus className="w-4 h-4" />
                 Daftar Gratis
               </a>
@@ -405,7 +405,7 @@ export default function LandingPage() {
             <FadeIn delay={0.6}>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href="/register"
+                  href="https://app.nilai.online/register"
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-300/30 transition-all shadow-lg shadow-orange-500/20"
                 >
                   <UserPlus className="w-4 h-4" />
@@ -504,7 +504,7 @@ export default function LandingPage() {
           <FadeIn className="text-center mt-12" delay={0.4}>
             <p className="text-sm text-gray-500 mb-4">Tertarik dengan fitur kami? Daftar gratis dan mulai ujian online sekarang.</p>
             <ShimmerButton
-              href="/register"
+              href="https://app.nilai.online/register"
               className="px-6 py-3 text-white text-sm shadow-lg shadow-orange-500/20"
               background="#F97316"
               shimmerColor="rgba(255,255,255,0.2)"
@@ -830,7 +830,7 @@ export default function LandingPage() {
                         </a>
                       ) : (
                         <a
-                          href="/register"
+                          href="https://app.nilai.online/register"
                           className={cn(
                             "flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-all",
                             isPopular
@@ -929,7 +929,7 @@ export default function LandingPage() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <ShimmerButton
-                  href="/register"
+                  href="https://app.nilai.online/register"
                   className="px-8 py-3.5 text-white text-sm shadow-xl"
                   background="#F97316"
                   shimmerColor="rgba(255,255,255,0.2)"
@@ -972,7 +972,7 @@ export default function LandingPage() {
               <h4 className="text-sm font-semibold text-gray-900 mb-3">Produk</h4>
               <ul className="space-y-2">
                 {[
-                  { label: "Daftar Gratis", href: "/register" },
+                  { label: "Daftar Gratis", href: "https://app.nilai.online/register" },
                   { label: "Ujian Online", href: "#fitur" },
                   { label: "Kehadiran Online", href: "https://kehadiran.online/" },
                   { label: "Harga", href: "#harga" },
