@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeft, Calendar, Clock, TrendingUp, DollarSign, Clock3, Shield, BarChart3, Leaf, Users, Zap, Award, Globe } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";

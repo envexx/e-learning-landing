@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeft, Calendar, Clock, Lightbulb, Target, Zap, Brain, FileQuestion, CheckCircle2, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";

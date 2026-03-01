@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeft, Calendar, Clock, Share2, BookOpen, CheckCircle2, Users, BarChart3, Shield } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
