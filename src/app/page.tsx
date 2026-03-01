@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   ClipboardList, BarChart3, Shield, Sparkles, ArrowRight, Check,
   ChevronRight, Menu, X, Brain, Star, Quote, Globe,
-  UserCheck, FileText, MessageCircle, Loader2, UserPlus,
+  UserCheck, FileText, MessageCircle, Loader2, UserPlus, Leaf, CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/magicui/fade-in";
@@ -375,73 +375,114 @@ export default function LandingPage() {
       <Navbar />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-white">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-50/80 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-50/60 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <FadeIn delay={0.1} blur>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-50 to-orange-100/50 border border-orange-100/60 text-[#F97316] text-xs font-semibold mb-8">
-                <Sparkles className="w-3.5 h-3.5" />
-                Platform Ujian Online #1 di Indonesia
-              </div>
-            </FadeIn>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Content */}
+            <div>
+              <FadeIn delay={0.1} blur>
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-50 to-orange-100/50 border border-orange-100/60 text-[#F97316] text-xs font-semibold mb-6">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Platform Ujian Online #1 di Indonesia
+                </div>
+              </FadeIn>
 
-            <FadeIn delay={0.2} blur>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-                Ujian Online
-                <br />
-                <span className="text-[#F97316]">Mudah & Cepat</span>
-              </h1>
-            </FadeIn>
+              <FadeIn delay={0.2} blur>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                  Kelola Ujian
+                  <br />
+                  <span className="text-[#F97316]">Tanpa Ribet</span>
+                </h1>
+              </FadeIn>
 
-            <FadeIn delay={0.4} blur>
-              <p className="mt-6 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Platform ujian online (CBT) lengkap untuk sekolah SD, SMP, SMA, dan SMK. Auto-grading, AI generate soal, analitik nilai real-time.
-              </p>
-            </FadeIn>
+              <FadeIn delay={0.4} blur>
+                <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                  Platform CBT lengkap dengan auto-grading, AI pembuat soal, dan analitik real-time — untuk SD hingga SMK.
+                </p>
+              </FadeIn>
 
-            <FadeIn delay={0.6}>
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a
-                  href="https://app.nilai.online/register"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-300/30 transition-all shadow-lg shadow-orange-500/20"
-                >
-                  <UserPlus className="w-4 h-4" />
-                  Daftar Gratis
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="#harga"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-white text-gray-700 font-semibold text-sm border border-gray-200 hover:bg-gray-50 transition-colors"
-                >
-                  Lihat Harga
-                </a>
-              </div>
-            </FadeIn>
+              <FadeIn delay={0.5}>
+                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-50 border border-green-200">
+                  <Leaf className="w-5 h-5 text-green-600" />
+                  <span className="text-sm font-medium text-green-900">
+                    Hemat <strong>100.000+ lembar kertas</strong> setiap semester
+                  </span>
+                </div>
+              </FadeIn>
 
-            <FadeIn delay={0.8}>
-              <div className="mt-16 flex items-center justify-center gap-8 sm:gap-12">
-                {[
-                  { value: "500+", label: "Sekolah" },
-                  { value: "50rb+", label: "Ujian Dibuat" },
-                  { value: "99.9%", label: "Uptime" },
-                ].map((s, i) => (
-                  <div key={s.label} className="flex items-center gap-8 sm:gap-12">
-                    {i > 0 && <div className="w-px h-10 bg-gray-200 -ml-8 sm:-ml-12" />}
-                    <div className="text-center">
-                      <p className="text-2xl sm:text-3xl font-bold text-gray-900">
-                        <NumberTicker value={s.value} />
-                      </p>
-                      <p className="text-xs sm:text-sm text-gray-400 mt-1">{s.label}</p>
+              <FadeIn delay={0.6}>
+                <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  <a
+                    href="https://app.nilai.online/register"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-300/30 transition-all shadow-lg shadow-orange-500/20"
+                  >
+                    <UserPlus className="w-4 h-4" />
+                    Daftar Gratis
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="#harga"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-gray-700 font-semibold text-sm border border-gray-200 hover:bg-gray-50 transition-colors"
+                  >
+                    Lihat Harga
+                  </a>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.8}>
+                <div className="mt-12 flex items-center gap-8">
+                  {[
+                    { value: "500+", label: "Sekolah" },
+                    { value: "50rb+", label: "Ujian Dibuat" },
+                    { value: "99.9%", label: "Uptime" },
+                  ].map((s, i) => (
+                    <div key={s.label} className="flex items-center gap-8">
+                      {i > 0 && <div className="w-px h-10 bg-gray-200 -ml-8" />}
+                      <div>
+                        <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                          <NumberTicker value={s.value} />
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Right Column - Visual */}
+            <div className="relative lg:block hidden">
+              <FadeIn delay={0.3}>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-100 to-orange-50 rounded-3xl transform rotate-3" />
+                  <div className="relative bg-white rounded-2xl shadow-2xl shadow-orange-500/10 p-8 border border-gray-100">
+                    <Image
+                      src="/ss-detail-ujian.png"
+                      alt="Dashboard Ujian Online nilai.online"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto rounded-lg"
+                      priority
+                    />
+                    <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                          <CheckCircle2 className="w-6 h-6 text-green-600" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500">Auto-grading</p>
+                          <p className="text-sm font-bold text-gray-900">100% Akurat</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </FadeIn>
+                </div>
+              </FadeIn>
+            </div>
           </div>
-
         </div>
       </section>
 
@@ -512,6 +553,93 @@ export default function LandingPage() {
               <UserPlus className="w-4 h-4" />
               Daftar Gratis Sekarang
             </ShimmerButton>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ==================== BLOG SECTION ==================== */}
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-sm font-semibold text-[#F97316] tracking-wide uppercase mb-3">Blog & Artikel</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+              Panduan & Tips Ujian Online
+            </h2>
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              Pelajari best practices, tips, dan trik untuk memaksimalkan ujian online di sekolah Anda.
+            </p>
+          </FadeIn>
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.15}>
+            {[
+              {
+                title: "Panduan Lengkap Ujian Online untuk Sekolah 2026",
+                excerpt: "Implementasi ujian online (CBT) di sekolah kini menjadi kebutuhan. Panduan komprehensif dari infrastruktur hingga analisis hasil.",
+                href: "/blog/panduan-ujian-online-sekolah",
+                date: "1 Maret 2026",
+                readTime: "8 menit",
+                category: "Panduan",
+              },
+              {
+                title: "Cara Membuat Soal Ujian Online yang Efektif",
+                excerpt: "Tips menulis soal pilihan ganda, essay, dan menggunakan AI untuk generate soal ujian CBT yang berkualitas.",
+                href: "/blog/cara-membuat-soal-ujian-online",
+                date: "1 Maret 2026",
+                readTime: "10 menit",
+                category: "Tips & Trik",
+              },
+              {
+                title: "10 Keuntungan CBT untuk Sekolah Modern",
+                excerpt: "Dari efisiensi biaya hingga analitik mendalam, temukan 10 keuntungan utama implementasi CBT di sekolah Anda.",
+                href: "/blog/keuntungan-cbt-sekolah-modern",
+                date: "1 Maret 2026",
+                readTime: "12 menit",
+                category: "Insight",
+              },
+            ].map((article) => (
+              <StaggerItem key={article.title}>
+                <a
+                  href={article.href}
+                  className="group block h-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 transition-all duration-300 overflow-hidden"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="inline-block px-3 py-1 text-xs font-semibold text-orange-600 bg-orange-50 rounded-full">
+                        {article.category}
+                      </span>
+                      <span className="text-xs text-gray-400">•</span>
+                      <span className="text-xs text-gray-500">{article.readTime} baca</span>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+                    
+                    <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
+                      {article.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <span className="text-xs text-gray-400">{article.date}</span>
+                      <span className="inline-flex items-center gap-1 text-sm font-medium text-orange-600 group-hover:gap-2 transition-all">
+                        Baca Artikel
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+
+          <FadeIn className="text-center mt-12" delay={0.4}>
+            <a
+              href="/blog/panduan-ujian-online-sekolah"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-700 transition-colors"
+            >
+              Lihat Semua Artikel
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </FadeIn>
         </div>
       </section>
