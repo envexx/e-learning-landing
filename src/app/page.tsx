@@ -375,23 +375,23 @@ export default function LandingPage() {
       <Navbar />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-50/60 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Column - Content */}
-            <div>
+            <div className="text-center lg:text-left">
               <FadeIn delay={0.1} blur>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-50 to-orange-100/50 border border-orange-100/60 text-[#F97316] text-xs font-semibold mb-6">
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-50 to-orange-100/50 border border-orange-100/60 text-[#F97316] text-xs font-semibold mb-4 sm:mb-6">
                   <Sparkles className="w-3.5 h-3.5" />
-                  Platform Ujian Online #1 di Indonesia
+                  <span className="text-[11px] sm:text-xs">Platform Ujian Online #1 di Indonesia</span>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.2} blur>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
                   Kelola Ujian
                   <br />
                   <span className="text-[#F97316]">Tanpa Ribet</span>
@@ -399,25 +399,25 @@ export default function LandingPage() {
               </FadeIn>
 
               <FadeIn delay={0.4} blur>
-                <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                   Platform CBT lengkap dengan auto-grading, AI pembuat soal, dan analitik real-time — untuk SD hingga SMK.
                 </p>
               </FadeIn>
 
               <FadeIn delay={0.5}>
-                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-50 border border-green-200">
-                  <Leaf className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-green-900">
-                    Hemat <strong>100.000+ lembar kertas</strong> setiap semester
+                <div className="mt-4 sm:mt-6 inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-green-50 border border-green-200">
+                  <Leaf className="w-4 sm:w-5 h-4 sm:h-5 text-green-600 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium text-green-900">
+                    Hemat <strong className="whitespace-nowrap">100.000+ lembar</strong> kertas/semester
                   </span>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.6}>
-                <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
                   <a
                     href="https://app.nilai.online/register"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-300/30 transition-all shadow-lg shadow-orange-500/20"
+                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#ea6c0e] hover:shadow-lg hover:shadow-orange-300/30 transition-all shadow-lg shadow-orange-500/20"
                   >
                     <UserPlus className="w-4 h-4" />
                     Daftar Gratis
@@ -425,7 +425,7 @@ export default function LandingPage() {
                   </a>
                   <a
                     href="#harga"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-gray-700 font-semibold text-sm border border-gray-200 hover:bg-gray-50 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-white text-gray-700 font-semibold text-sm border border-gray-200 hover:bg-gray-50 transition-colors"
                   >
                     Lihat Harga
                   </a>
@@ -433,19 +433,19 @@ export default function LandingPage() {
               </FadeIn>
 
               <FadeIn delay={0.8}>
-                <div className="mt-12 flex items-center gap-8">
+                <div className="mt-8 sm:mt-12 flex items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 flex-wrap">
                   {[
                     { value: "500+", label: "Sekolah" },
                     { value: "50rb+", label: "Ujian Dibuat" },
                     { value: "99.9%", label: "Uptime" },
                   ].map((s, i) => (
-                    <div key={s.label} className="flex items-center gap-8">
-                      {i > 0 && <div className="w-px h-10 bg-gray-200 -ml-8" />}
-                      <div>
-                        <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                    <div key={s.label} className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+                      {i > 0 && <div className="w-px h-8 sm:h-10 bg-gray-200 -ml-4 sm:-ml-6 lg:-ml-8" />}
+                      <div className="text-center lg:text-left">
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
                           <NumberTicker value={s.value} />
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">{s.label}</p>
                       </div>
                     </div>
                   ))}
