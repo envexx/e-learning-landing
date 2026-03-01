@@ -391,7 +391,7 @@ export default function LandingPage() {
               </FadeIn>
 
               <FadeIn delay={0.2} blur>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
+                <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
                   Kelola Ujian
                   <br />
                   <span className="text-[#F97316]">Tanpa Ribet</span>
