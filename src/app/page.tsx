@@ -460,7 +460,7 @@ export default function LandingPage() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-orange-100 to-orange-50 rounded-3xl transform rotate-3" />
                   <div className="relative bg-white rounded-2xl shadow-2xl shadow-orange-500/10 p-8 border border-gray-100">
                     <Image
-                      src="/ss-detail-ujian.png"
+                      src="/ss-dashboard.png"
                       alt="Dashboard Ujian Online nilai.online"
                       width={600}
                       height={400}
@@ -485,24 +485,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Dashboard Preview — sits between hero and features, overlapping both */}
-      <div className="relative z-0 -mt-10 lg:-mt-16 mb-0 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn delay={1}>
-          <div className="relative overflow-hidden max-h-[420px] sm:max-h-[500px] lg:max-h-[560px]">
-            <Image
-              src="/ss-detail-ujian.png"
-              alt="Dashboard Ujian Online nilai.online"
-              width={1920}
-              height={1080}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
-          {/* Bottom fade overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-        </FadeIn>
-      </div>
 
       {/* ==================== FEATURES ==================== */}
       <section id="fitur" className="relative z-10 pt-10 lg:pt-16 pb-20 lg:pb-28">
